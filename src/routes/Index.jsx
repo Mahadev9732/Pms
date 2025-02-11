@@ -1,36 +1,42 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
+import publicRoutes from "@routes/publicRoutes";
+import staffRoutes from "@routes/StaffRoutes";
+import supervisorRoutes from "@routes/SupervisorRoutes";
 import ProtectedRoute from "./ProtectedRoute";
-import { publicRoutes } from "./publicRoutes";
-import { staffRoutes } from "./StaffRoutes";
-import { supervisorRoutes } from "./SupervisorRoutes";
 
 const AppRoutes = () => {
+  const renderRoutes = (routes, isProtected = false) =>
+    routes.map((route) => (
+      <Route
+        key={route.path}
+        path={route.path}
+        element={
+          isProtected ? (
+            <ProtectedRoute>
+              <Suspense fallback={<div>Loading...</div>}>
+                {route.element}
+              </Suspense>
+            </ProtectedRoute>
+          ) : (
+            <Suspense fallback={<div>Loading...</div>}>
+              {route.element}
+            </Suspense>
+          )
+        }
+      />
+    ));
+
   return (
     <Routes>
       {/* Public Routes */}
-
-      {publicRoutes.map((route, index) => (
-        <Route key={index} path={route.path} element={route.element} />
-      ))}
+      {renderRoutes(publicRoutes)}
 
       {/* Staff Protected Routes */}
-      {staffRoutes.map((route) => (
-        <Route
-          key={route.path}
-          path={route.path}
-          element={<ProtectedRoute>{route.element}</ProtectedRoute>}
-        />
-      ))}
+      {renderRoutes(staffRoutes, true)}
 
       {/* Supervisor Protected Routes */}
-      {supervisorRoutes.map((route) => (
-        <Route
-          key={route.path}
-          path={route.path}
-          element={<ProtectedRoute>{route.element}</ProtectedRoute>}
-        />
-      ))}
+      {renderRoutes(supervisorRoutes, true)}
     </Routes>
   );
 };

@@ -1,8 +1,9 @@
-import React from "react";
-import Login from "../pages/login/index";
-import MultistepForm from "../pages/registration/Index";
+import React, { lazy } from "react";
 
-export const publicRoutes = [
+const Login = lazy(() => import("@pages/login/index"));
+const MultistepForm = lazy(() => import("@pages/registration/Index"));
+
+const publicRoutes = [
   {
     path: "/",
     element: <Login />,
@@ -12,3 +13,5 @@ export const publicRoutes = [
     element: <MultistepForm />,
   },
 ];
+
+export default publicRoutes;
