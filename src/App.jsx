@@ -16,8 +16,8 @@ const App = () => {
     navigate("/"); // Redirect to the login page
   };
 
-  // Use custom hook for inactivity logout
-  useInactivityLogout(handleLogout, 15 * 60 * 1000);
+  // Use custom hook for inactivity logout (15 minutes)
+  useInactivityLogout(handleLogout, 15 * 60 * 1000); // Fixed the timer calculation
 
   // Online/Offline status alert
   const { isOnline } = useNetworkStatus();
@@ -30,10 +30,28 @@ const App = () => {
     previousStatus.current = isOnline;
   }, [isOnline]);
 
+  // Check authentication token on initial load
+  useEffect(() => {
+    const token = getauthToken();
+    if (!token) {
+      navigate("/"); // Redirect to login if no token is found
+    }
+  }, [navigate]);
+
   return (
     <div>
       <AppRoutes />
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

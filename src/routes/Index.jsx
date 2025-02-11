@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import publicRoutes from "./publicRoutes";
-import staffRoutes from "./StaffRoutes";
-import supervisorRoutes from "./SupervisorRoutes";
+import staffRoutes from "./staffRoutes";
+import supervisorRoutes from "./supervisorRoutes";
 import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes = () => {
