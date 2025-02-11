@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import publicRoutes from "./publicRoutes";
+import generalRoute from "./PublicRoutes";
 import staffRoutes from "./staffRoutes";
 import supervisorRoutes from "./supervisorRoutes";
 import ProtectedRoute from "./ProtectedRoute";
@@ -30,7 +30,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       {/* Public Routes */}
-      {renderRoutes(publicRoutes)}
+      {renderRoutes(generalRoute)}
 
       {/* Staff Protected Routes */}
       {renderRoutes(staffRoutes, true)}
