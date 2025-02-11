@@ -1,4 +1,4 @@
-import Rea from "react";
+import React from "react";
 import Login from "../pages/login/index";
 import MultistepForm from "../pages/registration/Index";
 
