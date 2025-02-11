@@ -1,16 +1,16 @@
 import React, { lazy } from "react";
 
 const Introduction = lazy(() =>
-  import("@pages/staff/introduction/Introduction")
+  import("../pages/staff/introduction/Introduction")
 );
-const Dashboard = lazy(() => import("@pages/staff/dashboard/Dashboard"));
-const Department = lazy(() => import("@pages/staff/department/Department"));
-const PersonalInfo = lazy(() => import("@pages/staff/profile/PersonalInfo"));
-const Planning = lazy(() => import("@pages/staff/planning/Index"));
-const Review = lazy(() => import("@pages/staff/review/Index"));
-const Grievance = lazy(() => import("@pages/staff/grievance/Grievance"));
+const Dashboard = lazy(() => import("../pages/staff/dashboard/Dashboard"));
+const Department = lazy(() => import("../pages/staff/department/Department"));
+const PersonalInfo = lazy(() => import("../pages/staff/profile/PersonalInfo"));
+const Planning = lazy(() => import("../pages/staff/planning/Index"));
+const Review = lazy(() => import("../pages/staff/review/Index"));
+const Grievance = lazy(() => import("../pages/staff/grievance/Grievance"));
 const Performance = lazy(() =>
-  import("@pages/staff/grievance/performence/Index")
+  import("../pages/staff/grievance/performence/Index")
 );
 
 const staffRoutes = [
