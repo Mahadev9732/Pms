@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import generalRoute from "./PublicRoutes";
-import staffRoutes from "./staffRoutes";
-import supervisorRoutes from "./supervisorRoutes";
+import Public from "./Public";
+import Staff from "./Staff";
+import Supervisor from "./Supervisor";
 import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes = () => {
@@ -30,13 +30,13 @@ const AppRoutes = () => {
   return (
     <Routes>
       {/* Public Routes */}
-      {renderRoutes(generalRoute)}
+      {renderRoutes(Public)}
 
       {/* Staff Protected Routes */}
-      {renderRoutes(staffRoutes, true)}
+      {renderRoutes(Staff, true)}
 
       {/* Supervisor Protected Routes */}
-      {renderRoutes(supervisorRoutes, true)}
+      {renderRoutes(Supervisor, true)}
     </Routes>
   );
 };

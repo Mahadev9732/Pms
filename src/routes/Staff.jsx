@@ -13,7 +13,7 @@ const Performance = lazy(() =>
   import("../pages/staff/grievance/performence/Index")
 );
 
-const staffRoutes = [
+const Staff = [
   { path: "/staff/introduction/:year", element: <Introduction /> },
   { path: "/staff/dashboard/:year", element: <Dashboard /> },
   { path: "/staff/department/:year/:departmentId", element: <Department /> },
@@ -27,4 +27,4 @@ const staffRoutes = [
   },
 ];
 
-export default staffRoutes;
+export default Staff;

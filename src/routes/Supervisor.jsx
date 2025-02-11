@@ -9,11 +9,11 @@ const Department = lazy(() =>
 );
 const Planning = lazy(() => import("../pages/supervisor/planning/Planning"));
 
-const supervisorRoutes = [
+const Supervisor = [
   { path: "/supervisor/introduction/:year", element: <Introduction /> },
   { path: "/supervisor/dashboard/:year", element: <Dashboard /> },
   { path: "/supervisor/department/:year", element: <Department /> },
   { path: "/supervisor/planning/:year", element: <Planning /> },
 ];
 
-export default supervisorRoutes;
+export default Supervisor;

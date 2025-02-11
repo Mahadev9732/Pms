@@ -3,7 +3,7 @@ import React, { lazy } from "react";
 const Login = lazy(() => import("../pages/login/index"));
 const MultistepForm = lazy(() => import("../pages/registration/Index"));
 
-const publicRoutes = [
+const Public = [
   {
     path: "/",
     element: <Login />,
@@ -14,4 +14,4 @@ const publicRoutes = [
   },
 ];
 
-export default publicRoutes;
+export default Public;
